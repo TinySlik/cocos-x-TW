@@ -6,22 +6,19 @@ now is debug for androidstudio .
 good luck with me.
 
 
-Download
+## Running the samples
 
-$ git clone  https://github.com/TinySlik/cocos-x-TW.git
+### Download
 
-$ cd cocos2d-x-TW
+    $ git clone https://github.com/TinySilk/cocos2d-x-TW.git
+    $ cd cocos2d-x-TW
+    $ git submodule update --init
+    $ cd libs/cocos2d-x/
+    $ ./download-deps.py
 
-$ git submodule update --init
-
-$ cd libs/cocos2d-x/
-
-$ ./download-deps.py
-
-Running
-
+### Running
+    
 Once the samples were downloaded just go any sample, and open the project. eg:
 
-$ cd cocos2d-x-TW/samples/LiquidFun-Testbed/proj.ios_mac
-
-$ open LiquidFun-Testbed.xcodeproj/
+    $ cd cocos2d-x-TW/samples/proj.ios_mac
+    $ open HelloTW.xcodeproj/
