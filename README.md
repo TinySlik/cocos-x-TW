@@ -8,7 +8,7 @@ good luck with me.
 
 Download
 
-$ git clone 
+$ git clone  https://github.com/TinySlik/cocos-x-TW.git
 
 $ cd cocos2d-x-samples
 
