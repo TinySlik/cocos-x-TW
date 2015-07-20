@@ -10,7 +10,7 @@ Download
 
 $ git clone  https://github.com/TinySlik/cocos-x-TW.git
 
-$ cd cocos2d-x-samples
+$ cd cocos2d-x-TW
 
 $ git submodule update --init
 
@@ -22,6 +22,6 @@ Running
 
 Once the samples were downloaded just go any sample, and open the project. eg:
 
-$ cd cocos2d-x-samples/samples/LiquidFun-Testbed/proj.ios_mac
+$ cd cocos2d-x-TW/samples/LiquidFun-Testbed/proj.ios_mac
 
 $ open LiquidFun-Testbed.xcodeproj/
