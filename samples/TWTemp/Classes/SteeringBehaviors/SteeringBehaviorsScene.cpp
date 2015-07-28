@@ -437,7 +437,7 @@ bool SteeringBehaviors::init()
     
 //******************Flocking*****************
 
-//    
+    
 //    for (int i =0; i<7; i++) {
 //        auto wander = Vehicle::create("images/ghost10.png");
 //        wander->setPosition(400+rand_0_1()*i*100,400+rand_0_1()*i*100);
@@ -459,20 +459,20 @@ bool SteeringBehaviors::init()
     
 //******************CellSpace*****************
 
-//    for (int i =0; i<7; i++) {
-//        auto wander = Vehicle::create("images/ghost1.png");
-//        wander->setPosition(400+rand_0_1()*i*100,400+rand_0_1()*i*100);
-//        wander->setHeading(Vec2(0,-1));
-//        wander->setVeloctity(Vec2(10,0));
-//        wander->setTarget(targetPot);
-//        wander->getSteering()->WanderOn();
-////        wander->getSteering()->AlignmentOn();
-////        wander->getSteering()->SeparationOn();
-//        wander->scheduleUpdate();
-//        addChild(wander);
-//        g_Data->addEntity(wander);
-//        cellSpece->AddEntity(wander);
-//    }
+    for (int i =0; i<7; i++) {
+        auto wander = Vehicle::create("images/ghost1.png");
+        wander->setPosition(400+rand_0_1()*i*100,400+rand_0_1()*i*100);
+        wander->setHeading(Vec2(0,-1));
+        wander->setVeloctity(Vec2(10,0));
+        wander->setTarget(targetPot);
+        wander->getSteering()->WanderOn();
+//        wander->getSteering()->AlignmentOn();
+//        wander->getSteering()->SeparationOn();
+        wander->scheduleUpdate();
+        addChild(wander);
+        g_Data->addEntity(wander);
+        cellSpece->AddEntity(wander);
+    }
     
     return true;
 }

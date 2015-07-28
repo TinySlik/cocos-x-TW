@@ -167,7 +167,7 @@ void OpenGL6::initData()
     program->updateUniforms();
     
     
-//    this->setGLProgram(GLProgramCache::getInstance()->getGLProgram(GLProgram::SHADER_NAME_POSITION_COLOR));
+    //    this->setGLProgram(GLProgramCache::getInstance()->getGLProgram(GLProgram::SHADER_NAME_POSITION_COLOR));
     this->setGLProgram(program);
     
     glGenVertexArrays(1, &vao);
@@ -205,6 +205,10 @@ void OpenGL6::initData()
                           sizeof(Vertex),
                           (GLvoid* )offsetof(Vertex,Color));
     
+   
+    
+    
+    
     GLuint textureLocation = glGetAttribLocation(program->getProgram(), "a_coord");
     glEnableVertexAttribArray(textureLocation);
     glVertexAttribPointer(textureLocation, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, TexCoord));
@@ -235,11 +239,10 @@ void OpenGL6::initData()
     
     program->autorelease();
     
+  
+    
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    
-    
-    
     //    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
@@ -302,9 +305,6 @@ void OpenGL6::onDraw(){
     GLuint uColorLocation = glGetUniformLocation(glProgram->getProgram(), "u_color");
     
     float uColor[] = {1.0, 1.0, 1.0, 1.0};
-    
-    
-    
     glUniform4fv(uColorLocation,1, uColor);
     
     GL::bindTexture2D(textureId);
