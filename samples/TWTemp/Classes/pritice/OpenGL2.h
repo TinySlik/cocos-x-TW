@@ -55,6 +55,13 @@ private:
     GLuint vao;
     GLuint vertexVBO;
     GLuint colorVBO;
+    
+    float   r_random;
+    bool    r_add;
+    float   g_random;
+    bool    g_add;
+    float   b_random;
+    bool    b_add;
 };
 
 #endif /* defined(__TestSpine__OpenGL2__) */

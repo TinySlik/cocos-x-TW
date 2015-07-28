@@ -3,7 +3,7 @@
 #include "SimpleAudioEngine.h"
 #include "WelcomeScene.h"
 
-//#define DEBUG_OPENGL_TW
+#define DEBUG_OPENGL_TW
 //#define DEBUG_GAF_TW
 //#define DEBUG_EYECANDY_TW
 //#define DEBUG_LIQUIDFUNTESTBED_TW

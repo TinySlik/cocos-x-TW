@@ -70,19 +70,21 @@ void OpenGL2::initData()
         {{1,1},{0,1,0,1}}
     };
     
-    float vertercies[] = { 0,0,   //第一个点的坐标
-        size.width, 0,   //第二个点的坐标
-        size.width / 2, size.height};  //第三个点的坐标
+    float vertercies[] = { size.width/4,size.height/2,   //第一个点的坐标
+        size.width/2, 0,   //第二个点的坐标
+        size.width / 2, size.height,
+        size.width*3/4,size.height/2
+    };  //第三个点的坐标
     
-    float color[] = { 0, 1,0, 1,  1,0,0, 1, 0, 0, 1, 1};
+    float color[] = { 0, 1,0, 1,  1,0,0, 1, 0, 0, 1, 1 , 0 , 1, 1,1};
     
     GLubyte indices[] = { 0,1,2,  //第一个三角形索引
         2,3,1}; //第二个三角形索引
     
+    
     glGenBuffers(1, &vertexVBO);
     glBindBuffer(GL_ARRAY_BUFFER, vertexVBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertercies), vertercies, GL_STATIC_DRAW);
-    
 //    glBufferData(GL_ARRAY_BUFFER, sizeof(data), data, GL_STATIC_DRAW);
     GLuint positionLocation = glGetAttribLocation(program->getProgram(), "a_position");
         CCLOG("position =%d", positionLocation);
@@ -94,6 +96,9 @@ void OpenGL2::initData()
 //                          sizeof(Vertex),
 //                         (GLvoid*)offsetof(Vertex,Position));
     glVertexAttribPointer(positionLocation, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid*)0);
+    
+    
+    
     
     glGenBuffers(1, &colorVBO);
     glBindBuffer(GL_ARRAY_BUFFER, colorVBO);
@@ -121,6 +126,15 @@ void OpenGL2::initData()
     
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+    
+    CCLOG("%d",vao);
+    CCLOG("%d",vertexVBO);
+    CCLOG("%d",colorVBO);
+    
+    r_random = 0.0;
+    g_random = 0.5;
+    b_random = 1.0;
+    r_add = true;
 }
 void OpenGL2::visit(cocos2d::Renderer *renderer, const cocos2d::Mat4 &parentTransform, uint32_t parentFlags){
     
@@ -141,7 +155,6 @@ void OpenGL2::onDraw(){
 //    Director::getInstance()->pushMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
 //    Director::getInstance()->loadIdentityMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
     
-    
     auto glProgram = getGLProgram();
     
     glProgram->use();
@@ -149,15 +162,40 @@ void OpenGL2::onDraw(){
     //set uniform values, the order of the line is very important
     glProgram->setUniformsForBuiltins();
     
-    
-    
     auto size = Director::getInstance()->getWinSize();
     //use vao
     glBindVertexArray(vao);
     
     GLuint uColorLocation = glGetUniformLocation(glProgram->getProgram(), "u_color");
     
-    float uColor[] = {1.0, 1.0, 1.0, 1.0};
+    do{
+        if(r_random <0.0 || r_random >1.0 )
+        {
+            r_add = !r_add;
+        }
+        if (r_add) {
+            r_random++;
+        }else{
+            r_random--;
+        }
+    }while (r_random <0.0 || r_random >1.0 );
+    
+    
+//    g_random += 0.01;
+//    if (g_random > 1.0) {
+//        g_random = 0.0;
+//    }
+//    b_random += 0.01;
+//    if (b_random > 1.0) {
+//        b_random = 0.0;
+//    }
+    float r = r_random;
+    float g = g_random;
+    float b = b_random;
+    
+    float uColor[] = {r, g, b, 1.0};
+    
+    
     glUniform4fv(uColorLocation,1, uColor);
     
 //        glDrawArrays(GL_TRIANGLES, 0, 3);

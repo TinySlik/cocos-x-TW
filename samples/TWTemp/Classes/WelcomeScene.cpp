@@ -42,6 +42,5 @@ WelcomeScene* WelcomeScene::create()
         
         return layer;
     }
-    
     return nullptr;
 }

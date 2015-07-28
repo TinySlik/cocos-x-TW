@@ -1,12 +1,20 @@
 [submodule "libs/cocos2d-x"]
 	path = libs/cocos2d-x
 	url = https://github.com/TinySlik/tiny-cocos2d-x.git
+	ignore = all
+	fetchRecurseSubmodules = true
 [submodule "libs/genius-x"]
 	path = libs/genius-x
 	url = https://github.com/TinySlik/genius-tiny.git
+	fetchRecurseSubmodules = true
+	ignore = all
 [submodule "libs/GAF"]
 	path = libs/GAF
 	url = https://github.com/CatalystApps/Cocos2dxGAFPlayer.git
+	ignore = all
+	fetchRecurseSubmodules = true
 [submodule "libs/liquidfun/liquidfun"]
 	path = libs/liquidfun/liquidfun
 	url = https://github.com/google/liquidfun.git
+	ignore = all
+	fetchRecurseSubmodules = true
