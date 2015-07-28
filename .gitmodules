@@ -7,6 +7,8 @@
 [submodule "libs/GAF"]
 	path = libs/GAF
 	url = https://github.com/CatalystApps/Cocos2dxGAFPlayer.git
+	ignore = dirty
+	fetchRecurseSubmodules = true
 [submodule "libs/liquidfun/liquidfun"]
 	path = libs/liquidfun/liquidfun
 	url = https://github.com/google/liquidfun.git
